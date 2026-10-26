@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Посуда GLASS: разбор ниши</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~70ch) with wide tables breaking out; brass used only for marks, never for body text blocks */
+:root {
+  --bg: #f5f6f8;          /* porcelain, slight cool bias */
+  --surface: #ffffff;
+  --fg: #1a1d26;          /* ink */
+  --muted: #5b6070;
+  --line: #dfe2e8;
+  --glass: #e6ecf2;       /* pale glass tint */
+  --brass: #7a5f2c;       /* text-safe brass */
+  --brass-soft: #c7a764;
+  --good: #2f6b4f;
+  --warn: #9a5a12;
+  --bad: #a03a32;
+  --font-display: "Prata", "Times New Roman", serif;
+  --font-body: "Golos Text", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121419; --surface: #1a1d24; --fg: #e9e7e2; --muted: #a2a6b2; --line: #2c3039;
+    --glass: #1f2630; --brass: #d6b673; --brass-soft: #8c7442;
+    --good: #6fbf98; --warn: #e0a457; --bad: #e07a70; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121419; --surface: #1a1d24; --fg: #e9e7e2; --muted: #a2a6b2; --line: #2c3039;
+  --glass: #1f2630; --brass: #d6b673; --brass-soft: #8c7442;
+  --good: #6fbf98; --warn: #e0a457; --bad: #e07a70; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 80px;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: grid; gap: 56px; }
+.col { max-width: 70ch; }
+header.top { display: grid; gap: 14px; border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(30px, 5vw, 46px); }
+h2 { font-size: clamp(24px, 3.4vw, 32px); }
+h3 { font-size: 20px; }
+p { margin: 0; }
+.lede { font-size: 18px; color: var(--muted); max-width: 64ch; }
+.meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+section { display: grid; gap: 20px; }
+section > .head { display: grid; gap: 8px; }
+.stack { display: grid; gap: 12px; }
+ul.clean { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+ul.clean li::marker { color: var(--brass); }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: grid; gap: 14px; }
+.summary ol { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; }
+.summary li::marker { font-family: var(--font-mono); color: var(--brass); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.fact { background: var(--surface); padding: 16px; display: grid; gap: 4px; align-content: start; }
+.fact b { font-family: var(--font-display); font-weight: 400; font-size: 26px; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--glass); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tag { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; padding: 2px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.tag.fact-t { color: var(--good); }
+.tag.hyp-t { color: var(--warn); }
+.tag.risk-t { color: var(--bad); }
+.bars { display: grid; gap: 8px; }
+.bar { display: grid; grid-template-columns: minmax(120px, 210px) 1fr 44px; gap: 12px; align-items: center; font-size: 14px; }
+.bar .track { height: 12px; background: var(--glass); border-radius: 2px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--brass-soft); }
+.bar .fill.neg { background: var(--bad); opacity: .75; }
+.bar .v { font-family: var(--font-mono); font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; }
+.note { font-size: 13.5px; color: var(--muted); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.two > * { min-width: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 12px; align-content: start; }
+.quote { border-left: 2px solid var(--brass-soft); padding-left: 12px; font-size: 14.5px; color: var(--muted); }
+.concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.concept { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+.concept.pick { border-color: var(--brass); box-shadow: inset 0 0 0 1px var(--brass); }
+.concept .letter { font-family: var(--font-display); font-size: 34px; line-height: 1; color: var(--brass); }
+.concept h3 { font-size: 19px; }
+.concept .pick-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.concept dl { margin: 0; display: grid; gap: 6px; font-size: 14px; }
+.concept dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.concept dd { margin: 0; }
+a { color: var(--brass); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.sources { font-size: 13.5px; color: var(--muted); }
+.sources li { overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  .bar { grid-template-columns: 1fr 40px; }
+  .bar .label { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Предпроектный разбор · посуда · сайт</div>
+  <h1>Посуда GLASS: кто покупает, с кем конкурируем и каким должен быть сайт</h1>
+  <p class="lede">Разбор магазина на Wildberries, 238 отзывов покупателей, выдачи WB по ключевому запросу и сайтов четырёх брендов посуды. В конце четыре концепции сайта и вопросы к владельцу.</p>
+  <div class="meta">
+    <span>Данные на 26.10.2026</span>
+    <span>WB, регион выдачи — Москва</span>
+    <span><span class="tag fact-t">факт</span> — проверено по данным</span>
+    <span><span class="tag hyp-t">гипотеза</span> — уточнить у владельца</span>
+  </div>
+</header>
+
+<section>
+  <div class="summary">
+    <div class="eyebrow">Главное</div>
+    <ol>
+      <li><b>Это перепродажа турецкого и китайского стекла, не своё производство.</b> В карточках встречаются чужие марки (Dina Glass, Star Glass, Diamonds). Сайт строим на подборе, подаче и сервисе, а не на «нашей фабрике».</li>
+      <li><b>Ядро ассортимента — праздничная сервировка «стекло на золотой ножке»:</b> блюда, рулетницы, менажницы, лимонницы, конфетницы. 30 товаров, 427–2 277 ₽.</li>
+      <li><b>Покупатели хвалят красоту и упаковку, ругают бой и размер.</b> «Красиво» в 74 отзывах из 170, упаковка упоминается 30 раз. Бой и сломанные ножки — 13, «оказалось маленьким» — 8.</li>
+      <li><b>На WB продавец упирается в Lenardi.</b> По запросу «менажница на ножке» 1 274 товара, и 31 из первых 40 карточек принадлежит Lenardi. Карточка продавца стоит восьмой.</li>
+      <li><b>Сайт выигрывает там, где WB слаб:</b> готовые наборы на стол, подарочная упаковка, гарантия на бой, опт для кондитеров и банкетных залов, живая консультация в WhatsApp. Рекомендую концепцию C.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">1 · Продавец</div>
+    <h2>Что сейчас есть на Wildberries</h2>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>4,9</b><span>рейтинг продавца, 801 оценка</span></div>
+    <div class="fact"><b>4 270</b><span>товаров продано за всё время</span></div>
+    <div class="fact"><b>67%</b><span>заказов выкуплено</span></div>
+    <div class="fact"><b>9 мес</b><span>на Wildberries</span></div>
+    <div class="fact"><b>30</b><span>товаров в 10 категориях</span></div>
+  </div>
+  <div class="col stack">
+    <p>Юрлицо — ИП Джемиев Ш. Ш., ИНН начинается с 05 (Дагестан), торговая марка в реестре WB — «Посуда GLASS». Страны производства в фильтрах — Турция и Китай. Цвета ножек — золото, серебро.</p>
+    <p>Выкуп 67% при 4,9 звезды выглядит низким для недорогой посуды. По отзывам главная причина видна сразу: стекло бьётся в дороге, и часть заказов уходит в возврат.</p>
+    <p>На WB почти у всех товаров стоит «скидка» 42–77% от завышенной базовой цены. На своём сайте так делать не стоит: перечёркнутые 4 000 ₽ при реальных 884 ₽ снижают доверие.</p>
+  </div>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Товар (самые обсуждаемые)</th><th>Категория</th><th class="num">Цена*</th><th class="num">Оценок</th><th class="num">★</th></tr></thead>
+      <tbody>
+        <tr><td>Набор кружек 6 шт. «Рогашка Diamonds», 180 мл</td><td>кружки</td><td class="num">817 ₽</td><td class="num">81</td><td class="num">4,9</td></tr>
+        <tr><td>Рулетница, блюдо на ножках</td><td>менажницы</td><td class="num">2 093 ₽</td><td class="num">57</td><td class="num">4,8</td></tr>
+        <tr><td>Блюдо фарфор на ножках</td><td>блюда</td><td class="num">1 511 ₽</td><td class="num">39</td><td class="num">4,9</td></tr>
+        <tr><td>Доска деревянная «SMEG» 25 см</td><td>доски</td><td class="num">715 ₽</td><td class="num">39</td><td class="num">5,0</td></tr>
+        <tr><td>Менажница на ножках</td><td>менажницы</td><td class="num">2 211 ₽</td><td class="num">35</td><td class="num">4,8</td></tr>
+        <tr><td>Лимонница «Рогашка» на ножке, 2 шт.</td><td>лимонницы</td><td class="num">1 260 ₽</td><td class="num">26</td><td class="num">5,0</td></tr>
+        <tr><td>Блюдо на ножке (стекло, золото)</td><td>блюда</td><td class="num">1 304 ₽</td><td class="num">23</td><td class="num">5,0</td></tr>
+        <tr><td>Конфетница на ножке, креманка</td><td>конфетницы</td><td class="num">817 ₽</td><td class="num">19</td><td class="num">4,9</td></tr>
+        <tr><td>Масленка с крышкой (3 варианта)</td><td>масленки</td><td class="num">427 ₽</td><td class="num">2–5</td><td class="num">5,0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">* Цена с WB Кошельком на 26.10.2026. Остальные категории: креманки, розетки для варенья, подносы, стаканы.</p>
+  <div class="panel">
+    <div><span class="tag risk-t">риск</span></div>
+    <p>В названиях есть чужие торговые марки: «SMEG» (итальянская бытовая техника) и «Рогашка» (так в народе зовут узор словенского хрусталя Rogaška, его продаёт даже v-b.ru). На маркетплейсе это сходит с рук, на своём сайте лучше переименовать: «гранёный узор», «доска для подачи 25 см».</p>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">2 · Голос покупателя</div>
+    <h2>Что пишут в отзывах</h2>
+    <p class="note">238 отзывов по шести самым продаваемым группам товаров, 170 из них с текстом.</p>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h3>Оценки</h3>
+      <div class="bars" role="img" aria-label="Распределение оценок: 5 звёзд — 211, 4 — 7, 3 — 5, 2 — 6, 1 — 9">
+        <div class="bar"><span class="label">5 звёзд</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">211</span></div>
+        <div class="bar"><span class="label">4 звезды</span><div class="track"><div class="fill" style="width:3.3%"></div></div><span class="v">7</span></div>
+        <div class="bar"><span class="label">3 звезды</span><div class="track"><div class="fill" style="width:2.4%"></div></div><span class="v">5</span></div>
+        <div class="bar"><span class="label">2 звезды</span><div class="track"><div class="fill neg" style="width:2.8%"></div></div><span class="v">6</span></div>
+        <div class="bar"><span class="label">1 звезда</span><div class="track"><div class="fill neg" style="width:4.3%"></div></div><span class="v">9</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Темы в отзывах с текстом</h3>
+      <div class="bars" role="img" aria-label="Частота тем в 170 отзывах">
+        <div class="bar"><span class="label">«красиво», «шикарно»</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">74</span></div>
+        <div class="bar"><span class="label">упаковка (почти всегда хвалят)</span><div class="track"><div class="fill" style="width:40.5%"></div></div><span class="v">30</span></div>
+        <div class="bar"><span class="label">бой, трещины, ножка отвалилась</span><div class="track"><div class="fill neg" style="width:17.6%"></div></div><span class="v">13</span></div>
+        <div class="bar"><span class="label">куплено в подарок</span><div class="track"><div class="fill" style="width:14.9%"></div></div><span class="v">11</span></div>
+        <div class="bar"><span class="label">повторная покупка</span><div class="track"><div class="fill" style="width:12.2%"></div></div><span class="v">9</span></div>
+        <div class="bar"><span class="label">«оказалось маленьким»</span><div class="track"><div class="fill neg" style="width:10.8%"></div></div><span class="v">8</span></div>
+        <div class="bar"><span class="label">не как в описании</span><div class="track"><div class="fill neg" style="width:5.4%"></div></div><span class="v">4</span></div>
+        <div class="bar"><span class="label">дорого, цена скачет</span><div class="track"><div class="fill neg" style="width:5.4%"></div></div><span class="v">4</span></div>
+      </div>
+      <p class="note">Подсчёт по ключевым словам, один отзыв может попасть в несколько тем.</p>
+    </div>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h3>За что любят</h3>
+      <ul class="clean">
+        <li>Вид на столе: прозрачное стекло, металлическая тяжёлая ножка.</li>
+        <li>Надёжная упаковка: «упаковано в пупырку», «подписано».</li>
+        <li>Подходит в подарок: маме, подруге, коллеге.</li>
+        <li>Конкретные сценарии: меренговый рулет, бенто-торт, мороженое, нарезанный лимон, чай в армудах.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Что болит</h3>
+      <ul class="clean">
+        <li>Приходит разбитым, ножка отклеена или отвалилась.</li>
+        <li>Размер не считывается по фото, вещь оказывается меньше ожидаемой.</li>
+        <li>Описание расходится с товаром: 180 мл вместо 250, золото вместо серебра, керамика вместо фарфора.</li>
+        <li>Цена прыгает: «в прошлый раз брала за 811».</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col stack">
+    <p><b>Вывод для сайта.</b> Каждой из этих болей можно дать ответ прямо на странице товара: фото в руке и рядом с привычными предметами, размеры в сантиметрах на картинке, видео упаковки, гарантия замены при бое, фиксированная цена.</p>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">3 · Целевая аудитория</div>
+    <h2>Кто покупает</h2>
+  </div>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Сегмент</th><th>Что ищет</th><th>На чём основано</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td><b>Хозяйка праздничного стола</b><br><span class="note">женщина, принимает гостей</span></td><td>Чтобы стол выглядел богато, а подача была как в ресторане. Покупает по 2–3 предмета, возвращается докупить.</td><td>Отзывы про сервировку, рулет, бенто-торт; 9 повторных покупок</td><td><span class="tag fact-t">факт</span></td></tr>
+        <tr><td><b>Покупатель подарка</b></td><td>Красивая вещь до 2 500 ₽, которая не разобьётся в дороге и выглядит дороже цены.</td><td>11 отзывов «брала на подарок»; в названии карточки слово «подарок»</td><td><span class="tag fact-t">факт</span></td></tr>
+        <tr><td><b>Восточная и кавказская чайная культура</b></td><td>Армуды, лимонницы, розетки для варенья, конфетницы к чаю.</td><td>Слово «армуды» в отзывах, турецкое производство, продавец из Дагестана</td><td><span class="tag hyp-t">гипотеза</span></td></tr>
+        <tr><td><b>Кондитеры и оформители сладких столов</b></td><td>Подставки и блюда на ножке для подачи и фото, покупают партиями.</td><td>Отзыв про бенто-торт; у Lenardi 380 товаров в разделе «посуда для ресторанов»</td><td><span class="tag hyp-t">гипотеза</span></td></tr>
+        <tr><td><b>Банкетные залы, кафе, кейтеринг</b></td><td>Одинаковые блюда десятками, допоставка того же артикула, счёт для юрлица.</td><td>Lenardi строит на этом весь бизнес (опт, Москва и Пятигорск); на WB есть фильтр «Оптом дешевле»</td><td><span class="tag hyp-t">гипотеза</span></td></tr>
+        <tr><td><b>Семья невесты (приданое)</b></td><td>Набор посуды «на всю жизнь», чтобы сервировать стол после свадьбы.</td><td>Традиция сервировать стол посудой из приданого описана в материалах о дагестанской свадьбе</td><td><span class="tag hyp-t">гипотеза</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Откуда приходят покупатели по регионам, видно в кабинете продавца WB. Эти данные подтвердят или снимут гипотезы о Кавказе.</p>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">4 · Конкуренты</div>
+    <h2>С кем сравнивают и что у них взять</h2>
+  </div>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Кто</th><th>Сегмент</th><th>Как продаёт</th><th>Что взять</th></tr></thead>
+      <tbody>
+        <tr><td><b>Villeroy &amp; Boch</b><br><a href="https://www.v-b.ru/" target="_blank" rel="noopener">v-b.ru</a></td><td>Премиум: тарелка 3–4 тыс. ₽, наборы до 87 тыс. ₽</td><td>Коллекции, «Подарки на любой случай» с фирменной коробкой, программа лояльности, 3% за онлайн-оплату, бесплатная доставка по Москве от 5 000 ₽, памятка по уходу, салоны</td><td>Навигацию по коллекциям и поводам, подарочную упаковку как отдельную ценность, раздел по уходу. Ценовой сегмент не наш: брать подачу, не цены.</td></tr>
+        <tr><td><b>Lefard</b><br><a href="https://lefard.ru/" target="_blank" rel="noopener">lefard.ru</a></td><td>Тот же, что у нас: лимонница 473 ₽, масленка 546 ₽</td><td>Фирменный магазин при сильном присутствии на маркетплейсах: 10% на первый заказ по промокоду, бесплатная доставка от 5 000 ₽, бонусы, отзывы на главной, хэштег с фото покупателей</td><td>Самый близкий образец по механике: промокод на первый заказ, порог бесплатной доставки, отзывы и фото покупателей.</td></tr>
+        <tr><td><b>Lenardi</b><br><a href="https://lenardi.ru/" target="_blank" rel="noopener">lenardi.ru</a></td><td>Опт, Москва и Пятигорск</td><td>Цены по запросу, регистрация для опта, раздел «посуда для ресторанов». На WB заваливает выдачу десятками почти одинаковых карточек по 2 300–4 500 ₽</td><td>Главный соперник на WB. Сайт у них устаревший и только для опта, поэтому розница и подарки на сайте свободны.</td></tr>
+        <tr><td><b>Сима-Ленд, INHOMEKA, АКД</b></td><td>Масс-маркет на WB</td><td>Ширина ассортимента и низкая цена</td><td>С ними не конкурировать ценой. Отстраиваться подбором, наборами и сервисом.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <h3>Позиция на WB по запросу «менажница на ножке»</h3>
+    <div class="facts">
+      <div class="fact"><b>1 274</b><span>товара в выдаче</span></div>
+      <div class="fact"><b>31 из 40</b><span>первых карточек у Lenardi</span></div>
+      <div class="fact"><b>8-е</b><span>место карточки продавца (2 211 ₽)</span></div>
+      <div class="fact"><b>470 – 65 340 ₽</b><span>разброс цен в выдаче</span></div>
+    </div>
+    <p class="note">Снимок выдачи Москвы на 26.10.2026; выдача WB персональная и меняется каждый день.</p>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">5 · Смежные ниши</div>
+    <h2>Куда расти ассортиментом и разделами сайта</h2>
+  </div>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Ниша</th><th>Почему подходит</th><th>Что на сайте</th></tr></thead>
+      <tbody>
+        <tr><td><b>Готовые наборы для стола</b></td><td>Хозяйка покупает 2–3 предмета, и на WB ей приходится собирать их по разным карточкам</td><td>«Стол на 6 гостей», «Чай по-восточному», «Сладкий стол» одним заказом со скидкой за комплект</td></tr>
+        <tr><td><b>Подарки</b></td><td>11 отзывов про подарок; на WB нельзя добавить открытку и коробку</td><td>Подарочная коробка, открытка с текстом, подборки «до 1 000 ₽», «маме», «на новоселье»</td></tr>
+        <tr><td><b>Восточный чай</b></td><td>Армуды, лимонницы и розетки уже в ассортименте</td><td>Чайные наборы: армуды + лимонница + розетки + конфетница</td></tr>
+        <tr><td><b>Кондитеры и сладкие столы</b></td><td>Блюда и рулетницы на ножке — их рабочий инструмент</td><td>Раздел «Для кондитеров» с размерами под торты и рулеты</td></tr>
+        <tr><td><b>Банкеты, кафе, кейтеринг</b></td><td>Повторяемый объём, одинаковые артикулы</td><td>Раздел «Для бизнеса»: прайс от N штук, счёт для юрлица, запрос в WhatsApp</td></tr>
+        <tr><td><b>Приданое и свадьба</b></td><td>Большой разовый чек; актуально, если подтвердится кавказская география</td><td>Подборка «Сервировка для молодой семьи»</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">6 · Свой сайт против WB</div>
+    <h2>Где сайт может выиграть</h2>
+  </div>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Задача покупателя</th><th>На Wildberries</th><th>На своём сайте</th></tr></thead>
+      <tbody>
+        <tr><td>Найти и купить один предмет быстро</td><td>Удобнее: ПВЗ рядом, оплата в один клик</td><td>Проигрывает, поэтому оставить кнопку «Купить на WB»</td></tr>
+        <tr><td>Собрать стол из нескольких предметов</td><td>Разные карточки, разные сроки</td><td>Готовый набор одним заказом</td></tr>
+        <tr><td>Подарить</td><td>Коробка WB, без открытки</td><td>Подарочная упаковка и открытка</td></tr>
+        <tr><td>Не получить бой</td><td>Возврат через ПВЗ, ожидание</td><td>Видео упаковки и замена по фото из WhatsApp</td></tr>
+        <tr><td>Понять размер</td><td>Фото студийные, размер теряется</td><td>Фото в руке, рядом с чашкой, размеры прямо на фото</td></tr>
+        <tr><td>Купить партию для бизнеса</td><td>Неудобно, нет прайса</td><td>Оптовый прайс и прямой контакт</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">7 · Концепции</div>
+    <h2>Четыре варианта сайта</h2>
+  </div>
+  <div class="concepts">
+    <div class="concept">
+      <div class="letter">A</div>
+      <h3>Витрина бренда</h3>
+      <dl>
+        <dt>Что это</dt><dd>Каталог с кнопками «Купить на WB» и WhatsApp.</dd>
+        <dt>Плюс</dt><dd>Быстро, без логистики и онлайн-кассы, внешний трафик поднимает карточки на WB.</dd>
+        <dt>Минус</dt><dd>Своей маржи и базы клиентов нет, сайт работает как визитка.</dd>
+      </dl>
+    </div>
+    <div class="concept">
+      <div class="letter">B</div>
+      <h3>Полный интернет-магазин</h3>
+      <dl>
+        <dt>Что это</dt><dd>Корзина, онлайн-оплата, доставка СДЭК или Почтой.</dd>
+        <dt>Плюс</dt><dd>Своя маржа и база клиентов.</dd>
+        <dt>Минус</dt><dd>Нужен платный трафик, онлайн-касса, возвраты и бой при пересылке за свой счёт. На 30 товарах слабо.</dd>
+      </dl>
+    </div>
+    <div class="concept pick">
+      <div class="pick-label">Рекомендую</div>
+      <div class="letter">C</div>
+      <h3>Бутик сервировки: наборы, подарки, опт</h3>
+      <dl>
+        <dt>Что это</dt><dd>Каталог с двумя путями: «Купить на WB» для одного предмета и заказ напрямую для наборов, подарков и опта. Разделы «Для бизнеса» и «Для кондитеров».</dd>
+        <dt>Плюс</dt><dd>Сайт продаёт то, чего нет на WB, и не спорит с ним. Заказы через WhatsApp можно принимать с первого дня, оплату на сайте подключить вторым этапом.</dd>
+        <dt>Минус</dt><dd>Владельцу нужно собирать наборы и отвечать в WhatsApp.</dd>
+      </dl>
+    </div>
+    <div class="concept">
+      <div class="letter">D</div>
+      <h3>Журнал о сервировке</h3>
+      <dl>
+        <dt>Что это</dt><dd>Идеи столов, фотоподборки, статьи под поисковые запросы.</dd>
+        <dt>Плюс</dt><dd>Бесплатный поисковый трафик в долгую.</dd>
+        <dt>Минус</dt><dd>Отдача через месяцы, сам не продаёт. Подходит как раздел к C, не как отдельный сайт.</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="col stack">
+    <p><b>Почему C.</b> У продавца 30 товаров и весь поток покупателей на WB. Магазин-конкурент маркетплейсу (B) придётся кормить рекламой. Витрина (A) не даёт ничего своего. C забирает то, что WB делает плохо (наборы, подарки, опт, гарантия на бой), а одиночные покупки отдаёт туда, где они уже идут.</p>
+    <p>Приём заказов в WhatsApp ложится на твою систему с ИИ-администратором: он подскажет набор, ответит про размеры и примет заказ. Это добавка к сайту, а не обязательная часть.</p>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">8 · Что спросить у владельца</div>
+    <h2>Вопросы перед дизайном</h2>
+  </div>
+  <div class="col">
+    <ul class="clean">
+      <li>Зачем ему сайт: уйти от комиссии WB, продавать опт или помогать продажам на WB?</li>
+      <li>Где лежит товар и кто отправляет заказы: он сам или склад WB?</li>
+      <li>Готов ли продавать опт и от какого количества?</li>
+      <li>Из каких регионов покупатели (раздел аналитики в кабинете WB)?</li>
+      <li>Может ли собирать наборы и подарочную упаковку своими силами?</li>
+      <li>Будет ли расширять ассортимент сверх 30 позиций и в какую сторону?</li>
+      <li>Название: «Посуда GLASS» сложно найти в поиске и защитить. Готов ли к бренду с собственным именем?</li>
+      <li>Есть ли свои фото и видео товара, кроме карточек WB?</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <div class="eyebrow">Источники</div>
+  </div>
+  <ul class="clean sources">
+    <li>Магазин продавца на WB: <a href="https://www.wildberries.ru/seller/250096444" target="_blank" rel="noopener">wildberries.ru/seller/250096444</a> (каталог, карточки товаров, отзывы)</li>
+    <li>Выдача WB по запросу «менажница на ножке», Москва, 26.10.2026</li>
+    <li><a href="https://www.v-b.ru/" target="_blank" rel="noopener">v-b.ru</a>, <a href="https://lefard.ru/" target="_blank" rel="noopener">lefard.ru</a>, <a href="https://lenardi.ru/" target="_blank" rel="noopener">lenardi.ru</a></li>
+    <li>Приданое и сервировка в дагестанской свадьбе: <a href="https://daptar.org/2020/07/12/dagwedding1212/" target="_blank" rel="noopener">daptar.org</a>, <a href="https://etokavkaz.ru/traditcii/svadebnyi-sunduk" target="_blank" rel="noopener">etokavkaz.ru</a></li>
+  </ul>
+</section>
+
+</div>
+</body>
+</html>
